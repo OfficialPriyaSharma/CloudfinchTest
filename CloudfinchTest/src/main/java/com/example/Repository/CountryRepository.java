@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface CountryRepository extends JpaRepository<Country, String> {
 
-    @Query("select continent, name, area from country WHERE name IN (SELECT continent, name, MAX(area) FROM country GROUP BY continent")
+    @Query("select countryName, capital, region from country WHERE capital IN (SELECT countryName, capital, MAX(area) FROM country GROUP BY countryName")
     public List<Country> getAllLargestCountry();
 }
